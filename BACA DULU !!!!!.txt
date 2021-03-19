@@ -1,0 +1,8 @@
+1. Pastikan sudah terinstal Visual Studio Code & Instal XAMPP
+2. Ekstrak lalu Taruh/Pindahkan Folder SI-Praktikum ke xampp > htdocs.
+3. Agar Bisa dijalan kan, ubah semua extensi file (.html) menjadi (.php)
+   Contoh : index.html > index.php
+4. Start XAMPP (Apache & MySQL)
+5. Buka Browser (Chrome Recommended) , lalu ketik di URL : http://localhost/SI-Praktikum/
+6. Ubah Code File sesuai Comment di dalam setiap file. Contoh : <!-- Dirubah Saat Modul 2 -->.
+7. LIHAT VIDEO YANG TERTERA AGAR LEBIH JELAS !!
