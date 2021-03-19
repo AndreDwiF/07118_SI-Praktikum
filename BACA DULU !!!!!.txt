@@ -1,3 +1,14 @@
+Persiapan download Template web view praktikum :
+1. install git ke device masing-masing
+2. buat akun di https://github.com/
+3. konfigurasi dengan cara : 
+   $ git config --global user.name "John Doe"
+   $ git config --global user.email johndoe@example.com
+4. Download/clone template web view pada https://github.com/labrplitats/SI-Praktikum.git
+5. Clone repository pada direktori : C:\xampp\htdocs
+
+
+persiapan template web view :
 1. Pastikan sudah terinstal Visual Studio Code & Instal XAMPP
 2. Ekstrak lalu Taruh/Pindahkan Folder SI-Praktikum ke xampp > htdocs.
 3. Agar Bisa dijalan kan, ubah semua extensi file (.html) menjadi (.php)
