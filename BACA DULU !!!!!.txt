@@ -7,6 +7,14 @@ Persiapan download Template web view praktikum :
 4. Download/clone template web view pada https://github.com/labrplitats/SI-Praktikum.git
 5. Clone repository pada direktori : C:\xampp\htdocs
 
+Push pada repositori masing-masing dengan cara:
+1. Buat repository
+2. Masuk pada folder program template web view
+3. Buka git bash
+4. Lakukan command seperti dibawah
+   $ git remote remove origin
+   $ git remote add origin nama_repository
+   $ git push -u origin master
 
 persiapan template web view :
 1. Pastikan sudah terinstal Visual Studio Code & Instal XAMPP
