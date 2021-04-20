@@ -1,6 +1,6 @@
 <?php
 
-// fungsi koneksi berfungsi membuat koneksi dengan database
+// function koneksi berfungsi membuat koneksi ke database
 
 function koneksi()
 {
