@@ -57,7 +57,7 @@ class AuthModel {
     // function untuk cek dari database dari param $npm yg berisi npm dan $password berisi passwordnya 
     public function prosesAuthPraktikan($npm, $password)
     {
-        $sql = " select * from praktikan where npm='$npm' and password='$password'";
+        $sql = " SELECT * from praktikan where npm='$npm' and password='$password'";
         $query= koneksi()->query($sql);
         return $query->fetch_assoc();
     }
@@ -88,5 +88,47 @@ class AuthModel {
         session_destroy();
         header("location: index.php?page=auth&aksi=view&pesan=Berhasil Login");
     }
+
+    /**
+     * function prosesStorePraktikan berfungsi menambahkan data ke database
+     * @param String nama berisi data nama
+     * @param String npm berisi data npm
+     * @param String no_hp berisi data no_hp
+     * @param String password berisi data password
+     * 
+     */
+
+     public function prosesStorePraktikan($nama, $npm, $no_hp, $password)
+     {
+        $sql="INSERT INTO praktikan (nama,npm,nomor_hp,password) VALUES ('$nama','$npm','$no_hp','$password')";
+        return koneksi()->query($sql);
+     }
+
+    /**
+     * function storePraktikan berfungsi memproses data untuk ditambahkan
+     * function ini membutuhkan data nama,npm,password,no_hp dengan metode http request POST
+     */
+
+     public function storePraktikan()
+     {
+         $nama=$_POST['nama'];
+         $npm=$_POST['npm'];
+         $no_hp=$_POST['no_hp'];
+         $password=$_POST['password'];
+
+         if($this->prosesStorePraktikan($nama,$npm,$no_hp,$password))
+         {
+            header("location: index.php?page=auth&aksi=view&pesan=Berhasil Daftar"); //jangan ada spasi setelah location
+         }
+         else
+         {
+            header("location: index.php?page=auth&aksi=daftarPraktikan&pesan=Gagal Daftar"); //jangan ada spasi setelah location
+         }
+
+
+     }
 }
+//$tes=new AuthModel();
+ //var_export($tes->prosesStorePraktikan('andretes','1234','1234','pass'));
+ //die();
   

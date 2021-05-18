@@ -34,7 +34,7 @@
         </div>
         <div class="form-inline">
             <!-- Diganti Saat Modul 2 -->
-            <label class="form-control mr-sm-2">Aslab : {SESSION LOGIN ASLAB} </label>
+            <label class="form-control mr-sm-2">Aslab : <?=$_SESSION['aslab']['nama']?> </label>
             <a class=" btn btn-danger" href="index.php?page=auth&aksi=logout">Logout</a>
         </div>
     </nav>

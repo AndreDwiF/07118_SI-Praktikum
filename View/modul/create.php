@@ -33,7 +33,11 @@
                             <div class="col">
                                 <label for="">Praktikum : </label>
                                 <select name="praktikum" class="form-control" readonly>
-                                    <option value="bd">Basis Data</option>
+                                <?php
+                                foreach ($data as $row): ?>
+                                    <option value="<?= $row['id']?>"><?= $row['nama'];?></option>
+                                    <?php
+                                    endforeach; ?>
                                 </select>
                             </div>
                         </div>

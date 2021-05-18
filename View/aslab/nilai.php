@@ -16,7 +16,7 @@
                 <div class=" card-header">
                     <h2>Data Nilai Praktikan</h2>
                     <!-- id diganti saat modul 2 -->
-                    <a href="index.php?page=aslab&aksi=createNilai&id=#" class="btn btn-success float-right ml-3">Insert Nilai</a>
+                    <a href="index.php?page=aslab&aksi=createNilai&id=<?=$_GET['id']?>" class="btn btn-success float-right ml-3">Insert Nilai</a>
                     <a href="index.php?page=aslab&aksi=view" class="btn btn-info float-right ">Kembali</a>
                 </div>
                 <div class="card-body">
@@ -25,18 +25,16 @@
                         <!-- Diganti saat modul 2 -->
                         <thead>
                             <tr>
-                                <td>Modul 1</td>
-                                <td>Modul 2</td>
-                                <td>Modul 3</td>
-                                <td>Modul 4</td>
+                               <?php foreach ($modul as $row) : ?>
+                                <td><?= $row['namaModul']?></td>
+                                <?php endforeach; ?>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>70</td>
-                                <td>60</td>
-                                <td>50</td>
-                                <td>10</td>
+                            <?php foreach ($nilai as $row) : ?>
+                                <td><?= $row['nilai']?></td>
+                                <?php endforeach; ?>
                             </tr>
                         </tbody>
                     </table>

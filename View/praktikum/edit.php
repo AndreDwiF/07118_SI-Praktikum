@@ -21,15 +21,15 @@
                 <div class="card-body">
                     <form action="index.php?page=praktikum&aksi=update" method="POST">
                         <!-- Digant saat modul 3 -->
-                        <input type="hidden" name="id" value="1">
+                        <input type="hidden" name="id" value="<?= $data['id']?>">
                         <div class="row">
                             <div class="col">
                                 <label for="">Nama :</label>
-                                <input type="text" name="nama" class="form-control" value="John Doe">
+                                <input type="text" name="nama" class="form-control" value="<?= $data['nama']?>">
                             </div>
                             <div class=" col">
                                 <label for="">Tahun : </label>
-                                <input type="date" name="tahun" class="form-control" value="2021">
+                                <input type="date" name="tahun" class="form-control" value="<?= $data['tahun']?>">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary float-right mt-3">Simpan</button>

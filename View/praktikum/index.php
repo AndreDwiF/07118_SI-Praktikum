@@ -31,20 +31,24 @@
                         </thead>
                         <tbody>
                             <!-- Diganti Saat Modul 2 -->
+                            <?php $no=1;
+                            foreach($data as $row) : ?>
                             <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>2021</td>
-                                <td><span class="badge badge-danger">Tidak Aktif</span><span class="badge badge-success">Aktif</span></td>
+                                <td><?=$no?></td>
+                                <td><?= $row['nama'] ?></td>
+                                <td><?= $row['tahun'] ?></td>
+                                <td><?= $row['status']== 0 ? '<span class="badge badge-danger">Tidak Aktif</span>' : '<span class="badge badge-success">Aktif</span>'?></td>
                                 <td>
-                                    <a href="index.php?page=praktikum&aksi=edit&id=#" class="btn btn-warning">Edit</a>
-
-                                    <a href="index.php?page=praktikum&aksi=aktifkan&id=#" class="btn btn-success">Aktifkan</a>
-
-                                    <a href="index.php?page=praktikum&aksi=nonAktifkan&id=#" class="btn btn-danger">Non-Aktifkan</a>
-
+                                    <a href="index.php?page=praktikum&aksi=edit&id=<?= $row['id'] ?>" class="btn btn-warning">Edit</a>
+                                    <?php if($row['status']== 0) : ?>
+                                    <a href="index.php?page=praktikum&aksi=aktifkan&id=<?= $row['id'] ?>" class="btn btn-success">Aktifkan</a>
+                                    <?php elseif($row['status']== 1) : ?>
+                                    <a href="index.php?page=praktikum&aksi=nonAktifkan&id=<?= $row['id'] ?>" class="btn btn-danger">Non-Aktifkan</a>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
+                            <?php $no++;
+                            endforeach; ?>
                         </tbody>
                     </table>
                 </div>

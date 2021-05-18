@@ -62,7 +62,7 @@ class PraktikanModel {
 
         while ($data = $query->fetch_assoc())
         {
-            $hasil=$data;
+            $hasil[]=$data;
         }
         return $hasil;
 
@@ -90,7 +90,7 @@ class PraktikanModel {
 
         while ($data = $query->fetch_assoc())
         {
-            $hasil=$data;
+            $hasil[]=$data;
         }
         return $hasil;
     }
@@ -113,7 +113,7 @@ class PraktikanModel {
 
         while ($data = $query->fetch_assoc())
         {
-            $hasil=$data;
+            $hasil[]=$data;
         }
         return $hasil;
         
@@ -126,8 +126,96 @@ class PraktikanModel {
         $idPraktikum = $_GET['idPraktikum'];
         $modul = $this->getModul();
         $nilai = $this->getNilaiPraktikan($idPraktikan,$idPraktikum);
+        extract($modul);
+        extract($nilai);
         require_once("View/praktikan/nilaiPraktikan.php");
     }
 
+    /**
+     * function prosesUpdate untuk update data praktikan pada database
+     * @param String nama berisi nama praktikan
+     * @param String npm berisi npm praktikan
+     * @param String no_hp berisi no hp praktikan
+     * @param String password berisi password praktikan
+     * @param integer id berisi id praktikan
+     */
+
+     public function prosesUpdate($nama,$npm,$no_hp,$password,$id)
+     {
+        $sql="UPDATE praktikan set nama='$nama', npm='$npm', nomor_hp='$no_hp', password='$password' where id='$id'";
+        $query = koneksi()->query($sql);
+        return $query;
+     }
+
+     /**
+      * function update berfungsi untuk menyimpan hasil edit
+      */
+      
+      public function update()
+      {
+          $id=$_POST['id'];
+          $nama=$_POST['nama'];
+          $npm=$_POST['npm'];
+          $no_hp=$_POST['no_hp'];
+          $password=$_POST['password'];
+
+          if($this->prosesUpdate($nama,$npm,$no_hp,$password,$id))
+          {
+            header("location: index.php?page=praktikan&aksi=view&pesan=Berhasil Ubah Data"); //jangan ada spasi setelah location
+          }
+          else {
+            header("location: index.php?page=praktikan&aksi=edit&pesan=Gagal Ubah Data"); //jangan ada spasi setelah location
+          }
+      }
+
+      /**
+       * function edit berfungsi untuk menampilkan form edit
+       * 
+       */
+
+      public function edit()
+      {
+        $id=$_SESSION['praktikan']['id'];
+        $data=$this->get($id);
+        extract ($data);
+        require_once("View/praktikan/edit.php");
+      }
+
+      /**
+       * function prosesStorePraktikum untuk input data daftarpraktikum ke database  
+       * @param Integer idPraktikan berisi id praktikan
+       * @param Integer idPraktikum berisi id praktikum
+       */
+
+      public function prosesStorePraktikum($idPraktikan,$idPraktikum)
+      {
+        $sql="INSERT INTO daftarprak(praktikan_id,praktikum_id,status) VALUES ($idPraktikan,$idPraktikum,0)";
+        $query = koneksi()->query($sql);
+        return $query;
+      }
+
+      /**
+       * function storePraktikum berfungsi untuk memproses data praktikum yg dipilih untuk ditambahkan
+       * 
+       */
+
+       public function storePraktikum()
+       {
+           $praktikum=$_POST['praktikum'];
+           $idPraktikan=$_SESSION['praktikan']['id'];
+
+           if($this->prosesStorePraktikum($idPraktikan,$idPraktikum))
+           {
+            header("location: index.php?page=praktikan&aksi=praktikum&pesan=Berhasil Daftar Praktikum"); //jangan ada spasi setelah location
+           }
+           else {
+            header("location: index.php?page=praktikan&aksi=daftarPraktikum&pesan=Gagal Daftar Praktikum"); //jangan ada spasi setelah location
+           }
+       }
 }
+
+// $tes=new PraktikanModel();
+// var_export($tes->prosesStorePraktikum(2,2));
+// die();
+
 

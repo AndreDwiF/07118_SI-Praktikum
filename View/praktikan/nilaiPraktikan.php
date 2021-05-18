@@ -22,18 +22,16 @@
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <td>Modul 1</td>
-                                <td>Modul 2</td>
-                                <td>Modul 3</td>
-                                <td>Modul 4</td>
+                            <?php foreach ($modul as $row):?>
+                                <td><?=$row['namaModul']?></td>
+                                <?php endforeach; ?>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>70</td>
-                                <td>80</td>
-                                <td>30</td>
-                                <td>40</td>
+                            <?php foreach ($nilai as $row):?>
+                                <td><?=$row['nilai']?></td>
+                                <?php endforeach; ?>
                             </tr>
                         </tbody>
                     </table>

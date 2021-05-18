@@ -30,38 +30,18 @@
                         </thead>
                         <tbody>
                             <!-- Diganti Saat modul 2 -->
+                            <?php $no=1;
+                            foreach($data as $row) : ?>
                             <tr>
-                                <td>1</td>
-                                <td>Basis Data</td>
-                                <td>Modul 1</td>
+                                <td><?= $no ?></td>
+                                <td><?= $row ['praktikum']?></td>
+                                <td><?= $row ['nama']?></td>
                                 <td>
-                                    <a href="index.php?page=modul&aksi=delete&id=#" class="btn btn-danger">Hapus</a>
+                                    <a href="index.php?page=modul&aksi=delete&id=<?=$row['id']?>" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Basis Data</td>
-                                <td>Modul 2</td>
-                                <td>
-                                    <a href="index.php?page=modul&aksi=delete&id=#" class="btn btn-danger">Hapus</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Basis Data</td>
-                                <td>Modul 3</td>
-                                <td>
-                                    <a href="index.php?page=modul&aksi=delete&id=#" class="btn btn-danger">Hapus</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Basis Data</td>
-                                <td>Modul 4</td>
-                                <td>
-                                    <a href="index.php?page=modul&aksi=delete&id=#" class="btn btn-danger">Hapus</a>
-                                </td>
-                            </tr>
+                            <?php $no++;
+                            endforeach; ?>
                         </tbody>
                     </table>
                 </div>

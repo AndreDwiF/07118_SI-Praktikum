@@ -21,18 +21,18 @@
                 <div class="card-body">
                     <div class="row ml-4">
                         <div class="form-inline">
-                            <label class="form-control mr-sm-2 col-form-label"><span class="badge badge-primary">Nama Praktikan</span> : John Doe </label>
+                            <label class="form-control mr-sm-2 col-form-label"><span class="badge badge-primary">Nama Praktikan</span> : <?=$data['nama']?> </label>
                         </div>
                     </div>
 
                     <div class="row ml-4 mt-2">
                         <div class="form-inline">
-                            <label class="form-control mr-sm-2 col-form-label"><span class="badge badge-primary">NPM Praktikan</span> : 06.2088.12.9878 </label>
+                            <label class="form-control mr-sm-2 col-form-label"><span class="badge badge-primary">NPM Praktikan</span> : <?=$data['npm']?> </label>
                         </div>
                     </div>
                     <div class="row ml-4 mt-2">
                         <div class="form-inline">
-                            <label class="form-control mr-sm-2 col-form-label"><span class="badge badge-primary">No.Telp Praktikan</span> : 00000123 </label>
+                            <label class="form-control mr-sm-2 col-form-label"><span class="badge badge-primary">No.Telp Praktikan</span> : <?=$data['nomor_hp']?> </label>
                         </div>
                     </div>
                 </div>

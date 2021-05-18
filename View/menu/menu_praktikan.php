@@ -28,7 +28,7 @@
         </div>
         <div class="form-inline">
             <!-- Diganti Saat Modul 2 -->
-            <label class="form-control mr-sm-2">Praktikan : {SESSION LOGIN PRAKTIKAn} </label>
+            <label class="form-control mr-sm-2">Praktikan : <?=$_SESSION['praktikan']['nama']?> </label>
             <a class=" btn btn-danger" href="index.php?page=auth&aksi=logout">Logout</a>
         </div>
     </nav>
