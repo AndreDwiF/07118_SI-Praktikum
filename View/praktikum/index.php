@@ -34,10 +34,10 @@
                             <?php $no=1;
                             foreach($data as $row) : ?>
                             <tr>
-                                <td><?=$no?></td>
-                                <td><?= $row['nama'] ?></td>
-                                <td><?= $row['tahun'] ?></td>
-                                <td><?= $row['status']== 0 ? '<span class="badge badge-danger">Tidak Aktif</span>' : '<span class="badge badge-success">Aktif</span>'?></td>
+                                <td><?=$no; ?></td>
+                                <td><?= $row['nama']; ?></td>
+                                <td><?= date('Y',strtotime($row['tahun'])); ?></td>
+                                <td><?= $row['status']== 0 ? '<span class="badge badge-danger">Tidak Aktif</span>' : '<span class="badge badge-success">Aktif</span>';?></td>
                                 <td>
                                     <a href="index.php?page=praktikum&aksi=edit&id=<?= $row['id'] ?>" class="btn btn-warning">Edit</a>
                                     <?php if($row['status']== 0) : ?>

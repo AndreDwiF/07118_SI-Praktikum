@@ -27,14 +27,6 @@ class AslabModel {
     }
 
 
-    //function index berfungsi mengatur tampilan awal
-    public function index()
-    {
-        $idAslab = $_SESSION['aslab']['id'];
-        $data= $this->get($idAslab);
-        extract($data);
-        require_once("View/aslab/index.php");
-    }
     // function getModul berfungsi mengambil seluruh data dari modul 
     public function getModul()
     {
@@ -72,18 +64,7 @@ while ($data = $query->fetch_assoc())
 return $hasil;
 }
 
-    //function nilai berfungsi mengatur tampilan data nilai praktikan
-    public function nilai()
-    {
-        $idPraktikan = $_GET['id'];
-        $modul= $this->getModul();
-        $nilai= $this->getNilaiPraktikan($idPraktikan);
-        extract($modul);
-        extract($nilai);
-
-        require_once("View/aslab/nilai.php");
-
-    }
+  
 
     /**
      * function prosesStoreNilai berfungsi untuk melakukan insert nilai praktikan ke database
@@ -110,35 +91,7 @@ return $hasil;
 
      }
      
-    /**
-     * function storeNilai berfungsi menyimpan data nilai sesuai idpraktikan dari form yang telah diisi aslab
-     * pada halaman create nilai
-     */
-     public function storeNilai()
-     {
-        $idModul=$_POST['modul'];
-        $idPraktikan=$_GET['id'];
-        $nilai=$_POST['nilai'];
-
-        if($this->prosesStoreNilai($idModul,$idPraktikan,$nilai))
-        {
-            header("location: index.php?page=aslab&aksi=nilai&pesan=Berhasil Tambah Data&id=$idPraktikan"); //jangan ada spasi setelah location
-        }
-        else {
-            header("location: index.php?page=aslab&aksi=createNilai&pesan=Gagal Tambah Data&id=$idPraktikan"); //jangan ada spasi setelah location
-        }
-     }
-
-    /**
-     * function createNilai untuk mengatur ke halaman createNilai
-     */
-     public function createNilai()
-     {
-         $modul=$this->getModul();
-         extract($modul);
-         require_once("View/aslab/createNilai.php");
-     }
+  
+   
  }
- //$tes=new AslabModel();
- //var_export($tes->prosesStoreNilai(2, 1, 70));
-//die();
+

@@ -20,22 +20,22 @@
             <div class="card-body">
                 <form action="index.php?page=praktikan&aksi=update" method="POST">
                     <!-- Diganti saat modul 3 -->
-                    <input type="hidden" name="id" value="#">
+                    <input type="hidden" name="id" value="<?=$data['id']?>">
                     <div class="form-group">
                         <label for="">Nama Praktikan</label>
-                        <input type="text" name="nama" class="form-control" value="John Doe">
+                        <input type="text" name="nama" class="form-control" value="<?=$data['nama']?>">
                     </div>
                     <div class="form-group">
                         <label for="">NPM Praktikan</label>
-                        <input type="text" name="npm" class="form-control" value="06.2099.12.92929">
+                        <input type="text" name="npm" class="form-control" value="<?=$data['npm']?>">
                     </div>
                     <div class="form-group">
                         <label for="">Password Praktikan</label>
-                        <input type="password" name="password" class="form-control" value="password">
+                        <input type="password" name="password" class="form-control" value="<?=$data['password']?>">
                     </div>
                     <div class="form-group">
                         <label for="">No.Telp Praktikan</label>
-                        <input type="text" name="no_hp" class="form-control" value="087632">
+                        <input type="text" name="no_hp" class="form-control" value="<?=$data['nomor_hp']?>">
                     </div>
                     <button type="submit" class="btn btn-success btn-lg btn-block">Simpan</button>
                 </form>
